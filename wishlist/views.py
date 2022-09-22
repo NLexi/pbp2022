@@ -17,10 +17,10 @@ from django.urls import reverse
 def show_wishlist(request):
     data_wishlist_item = ItemWishlist.objects.all()
     context = {
-        'list_item': data_wishlist_item,
-        'name': 'Lexi',
-        'last_login': request.COOKIES['last_login'],
-    }
+    'list_item': data_wishlist_item,
+    'name': 'lexi',
+    'last_login': request.COOKIES['last_login'],
+}
     return render(request, "wishlist.html", context)
 
 def show_xml(request):
@@ -72,4 +72,3 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('wishlist:login'))
     response.delete_cookie('last_login')
     return response
-
